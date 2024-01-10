@@ -68,8 +68,7 @@ find(char* path, char* target)
     switch(st.type){
         case T_DEVICE:
         case T_FILE:
-            char* fname = fmtname(path);
-            if(strcmp(fname, target) == 0){
+            if(strcmp(fmtname(path), target) == 0){
                 printf("%s %d %d %l\n", path, st.type, st.ino, st.size);
             }
             break;
@@ -108,4 +107,5 @@ main(int argc, char* argv[])
         exit(1);
     }
     find(argv[1], argv[2]);
+    exit(0);
 }
