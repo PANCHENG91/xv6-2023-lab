@@ -28,6 +28,15 @@ sys_fork(void)
 }
 
 uint64
+sys_trace(void)
+{
+  int n;
+  argint(0, &n);
+  myproc()->tid = n;
+  return 0;
+}
+
+uint64
 sys_wait(void)
 {
   uint64 p;
